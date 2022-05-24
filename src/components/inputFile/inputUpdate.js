@@ -16,7 +16,7 @@ const InputUpdate = ({ onChange, onBlur, name }) => {
         onBlur={onBlur}
       />
       <label htmlFor="file-4">
-        <span className="iborrainputfile">gif/meme</span>
+        <span className="iborrainputfile">subir</span>
       </label>
     </div>
   );

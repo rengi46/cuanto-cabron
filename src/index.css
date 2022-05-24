@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+    background-image: url("https://statics.memondo.com/cuantocabron/images/pop2.jpg");
+}
+nav{
+    background-image: url("https://statics.memondo.com/cuantocabron/images/diamonds_transp2.jpg");
+}
+
+.logo{
+    display: block;
+    width: 300px;
+    height: 70px;
+    background: transparent url("https://statics.memondo.com/cuantocabron/images/sprite1.png?08112013") top left no-repeat;
+    background-position: -472px 0px;
+}
+
+.pepe{
+    font: bolder 32px 'Amatic SC', cursive;
+    cursor: pointer;
+}

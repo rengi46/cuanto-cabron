@@ -1,17 +1,49 @@
 import React from 'react'
+import eliminar from '../assets/img/eliminar.png'
+import editar from '../assets/img/editar.png'
+import { useDispatch } from 'react-redux'
+import { deleteMeme } from '../redux/action/memeActions'
+import Modal from './modal'
 
-export const Meme = ({infoMeme}) => {
+export const Meme = ({imgMeme,titulo,tags,_id}) => {
+    const [showModal, setShowModal] = React.useState(false);
+    const dispatch = useDispatch()
+    const eliminarMeme = () => {
+        console.log('eliminar')
+        dispatch(deleteMeme(_id))
+    }
+    const editMeme = () => {
+        setShowModal(true)
+        console.log('editar')
+    }
 return (
-    <div class="max-w-sm rounded overflow-hidden shadow-lg p-5 bg-gray-500 m-48">
-        <img class="w-full" src="https://statics.memondo.com/p/s1/ccs/2022/05/CC_2792148_11917437edc14b34ae7fe124e8d650f0_otros_no_lo_estas_usando_bien.jpg?cb=7700223" alt="Sunset in the mountains"/>
-        <div class="px-6 py-4 bg-gray-200 rounded-lg mt-3">
-            <div class="font-bold text-xl mb-2">No lo estás usando bien</div>
+    <div className="max-w-lg w-2/3 min-w-fit rounded overflow-hidden shadow-lg p-5 bg-white my-4 m-auto">
+        <div className="px-6 py-4 bg-gray-200 rounded-lg mb-3">
+            <div className="font-bold text-xl mb-2">{titulo}</div>
         </div>
-        <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#escobilla</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fail</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#mal</span>
+        <img className="w-full" src={imgMeme}/>
+        <div className="px-6 pt-4 pb-2 flex justify-between">
+            <div className='mr-4'>
+                {
+                    tags.map((tag,index)=>(
+                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{tag}</span>
+                    ))
+                }
+            </div>
+            <div>
+                <button
+                onClick={editMeme}
+                ><img className='h-6 w-6 m-2' src={editar}/></button>
+
+                <button
+                onClick={()=>{eliminarMeme()}}
+                ><img className='h-6 w-6 m-2' src={eliminar}/></button>
+
+            </div>
         </div>
+        {showModal && <Modal
+            edit={{meme:imgMeme,titulo:titulo,tag:tags,id:_id}}
+            setShowModal={setShowModal}/>}
     </div>
 )
 }
