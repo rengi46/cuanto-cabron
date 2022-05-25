@@ -9,8 +9,6 @@ export const ListaMemes = () => {
   const memes = useSelector(state=>state.memes.listMeme)
   const cargando = useSelector(state=>state.memes.cargando)
   React.useEffect(() => {
-    console.log(memes);
-    
     if(cargando){
       dispatch(getMeme())
     }

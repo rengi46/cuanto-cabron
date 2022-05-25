@@ -11,7 +11,6 @@ export const getMeme = () => {
         };
         axios(config)
         .then(response=>{
-            console.log(response);
             dispatch({
                 type: GET_MEME,
                 payload: response.data.body
@@ -21,7 +20,6 @@ export const getMeme = () => {
 }
 export const addMeme = (data) => {
     return (dispatch) => {
-        console.log(data);
         var config = {
             method: 'post',
             url: 'http://localhost:3001/meme',
@@ -30,7 +28,6 @@ export const addMeme = (data) => {
         };
         axios(config)
         .then(response=>{
-            console.log(response);
             dispatch({
                 type: RELOAD_MEME,
             })
@@ -39,7 +36,6 @@ export const addMeme = (data) => {
 }
 export const updateMeme = (data) => {
     return (dispatch) => {
-        console.log(data);
         var config = {
             method: 'patch',
             url: 'http://localhost:3001/meme',
@@ -48,7 +44,6 @@ export const updateMeme = (data) => {
         };
         axios(config)
         .then(response=>{
-            console.log(response);
             dispatch({
                 type: RELOAD_MEME,
             })
@@ -64,7 +59,6 @@ export const deleteMeme = (id) => {
         };
         axios(config)
         .then(response=>{
-            console.log(response);
             dispatch({
                 type: RELOAD_MEME,
             })

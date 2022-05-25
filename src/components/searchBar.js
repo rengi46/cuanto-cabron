@@ -8,7 +8,6 @@ export const SearchBar = () => {
     const handelClick = (e) => {
         e.preventDefault()
         const filter = listMemes.filter(meme => meme.tags.includes(search.toLowerCase()))
-        console.log(filter)
         dispatch({
             type: 'FILTER_MEME',
             payload: filter

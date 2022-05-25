@@ -23,7 +23,6 @@ export const CreaMeme = ({close}) => {
         tags:''
       },
       onSubmit :async values => {
-        console.log(values);
         if(chek){
           const fileName= ref(storage, values.meme.name);
           await uploadBytes(fileName, values.meme)
@@ -66,7 +65,6 @@ export const CreaMeme = ({close}) => {
                 className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4  my-2 mx-auto rounded-lg shadow-lg hover:shadow-xl transition duration-200'
                 type='button'
                 onClick={()=>{
-                  console.log(formik.values);
                   settags([...tags,formik.values.tags])
                   formik.values.tags=""
                 }} >add</button>

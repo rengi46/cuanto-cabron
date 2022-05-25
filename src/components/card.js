@@ -9,12 +9,10 @@ export const Meme = ({imgMeme,titulo,tags,_id}) => {
     const [showModal, setShowModal] = React.useState(false);
     const dispatch = useDispatch()
     const eliminarMeme = () => {
-        console.log('eliminar')
         dispatch(deleteMeme(_id))
     }
     const editMeme = () => {
         setShowModal(true)
-        console.log('editar')
     }
 return (
     <div className="max-w-lg w-2/3 min-w-fit rounded overflow-hidden shadow-lg p-5 bg-white my-4 m-auto">
